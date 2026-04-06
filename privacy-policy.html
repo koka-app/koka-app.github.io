@@ -108,10 +108,10 @@
 
   <main>
     <h1>Privacy Policy</h1>
-    <p class="subtitle">Last updated: April 1, 2026</p>
+    <p class="subtitle">Last updated: April 5, 2026</p>
 
     <h2>Overview</h2>
-    <p>Koka is a free mobile application that helps Filipino shoppers find the best market prices, plan meals within their budget, and get recipe suggestions — powered by real data from the Department of Agriculture (DA) Bantay Presyo program.</p>
+    <p>Koka is a mobile application that helps Filipino shoppers find real market prices, plan meals within their budget, and get recipe suggestions — powered by data from the Department of Agriculture (DA) Bantay Presyo program. The App offers a free tier (with ads) and a paid lifetime upgrade (Koka Pro).</p>
 
     <h2>Information We Collect</h2>
 
@@ -122,40 +122,55 @@
       <li>Email address</li>
       <li>Profile photo URL</li>
     </ul>
-    <p>This is used solely for syncing your basket across devices.</p>
+    <p>This is used for syncing your basket across devices and linking your Koka Pro purchase to your account.</p>
+
+    <h3>Location Data (Optional)</h3>
+    <p>On first launch, the App requests GPS/location permission to auto-detect your nearest region. This is used solely to show relevant local prices. You can skip this and set your region manually instead. Location data is not stored on our servers — it is processed on-device to determine your DA region.</p>
 
     <h3>Usage Data</h3>
     <ul>
       <li>Selected region/location preference</li>
       <li>Theme preference (light/dark/system)</li>
+      <li>Tab visibility preferences</li>
       <li>Basket contents (commodity names, prices, quantities, market sources)</li>
-      <li>Budget settings</li>
+      <li>Budget settings and actual spend on basket completion</li>
     </ul>
 
     <h3>AI Assistant Data</h3>
     <ul>
-      <li>Chat messages with the Koka assistant are processed locally on your device</li>
+      <li>The assistant's intent matching and response logic runs locally on your device</li>
+      <li>Price data, recipes, and jokes are fetched from Firebase Firestore (with local fallbacks for recipes and jokes)</li>
       <li>Chat history is not sent to any server or third party</li>
       <li>No conversation data is stored beyond the current session</li>
     </ul>
 
     <h3>What We Do NOT Collect</h3>
     <ul>
-      <li>Location data (GPS/geolocation) — you manually set your city/province</li>
       <li>Contact information beyond Google profile</li>
-      <li>Payment or financial information</li>
-      <li>Device identifiers for advertising</li>
+      <li>Payment or financial information (purchases are handled by App Store / Google Play)</li>
       <li>Biometric data</li>
     </ul>
 
     <h2>How We Use Your Information</h2>
     <ul>
-      <li><strong>Basket sync:</strong> If signed in, your basket is stored in Firebase Firestore so you can access it across devices.</li>
-      <li><strong>Preferences:</strong> Your region, budget, and theme settings are stored locally on your device.</li>
-      <li><strong>AI Assistant:</strong> All assistant interactions are rule-based and processed on-device. No data is sent to external AI services.</li>
-      <li><strong>No advertising:</strong> We do not serve ads or share your data with advertisers.</li>
-      <li><strong>No analytics profiling:</strong> We use Firebase Analytics for aggregate app usage (crash-free rate, screen views) but do not build individual user profiles.</li>
+      <li><strong>Basket sync:</strong> If signed in, your baskets are stored in Firebase Firestore so you can access them across devices.</li>
+      <li><strong>Pro purchases:</strong> Your Firebase UID is linked to your Koka Pro purchase via RevenueCat so your upgrade is tied to your account, not a device.</li>
+      <li><strong>Preferences:</strong> Region, budget, theme, and tab visibility settings are stored locally on your device via SharedPreferences.</li>
+      <li><strong>AI Assistant:</strong> All assistant intent matching is rule-based. Price data and content are fetched from Firebase Firestore. No data is sent to external AI services.</li>
+      <li><strong>Analytics:</strong> We use Firebase Analytics for aggregate app usage (crash-free rate, screen views) but do not build individual user profiles.</li>
     </ul>
+
+    <h2>Advertising</h2>
+    <p>The free tier of Koka displays ads powered by Google AdMob:</p>
+    <ul>
+      <li><strong>Banner ads</strong> on the Home and Mercado screens.</li>
+      <li><strong>Interstitial ads</strong> shown periodically when adding items to your basket (every 5th add, up to 3 per session).</li>
+    </ul>
+    <p>AdMob may use device identifiers and usage data to serve relevant ads. See <a href="https://policies.google.com/privacy">Google's Privacy Policy</a> for details on how ad data is handled.</p>
+    <p><strong>Koka Pro users see no ads.</strong> Upgrading to Pro removes all advertising from the App.</p>
+
+    <h2>In-App Purchases</h2>
+    <p>Koka Pro (₱149 lifetime) is processed through the Apple App Store or Google Play Store. We do not collect or store any payment information. Purchase status is managed by RevenueCat, which links your purchase to your Firebase UID.</p>
 
     <h2>Data Storage</h2>
     <ul>
@@ -175,6 +190,8 @@
         <tr><td>Cloud Firestore</td><td>Basket sync, app data</td><td><a href="https://firebase.google.com/support/privacy">Firebase Privacy</a></td></tr>
         <tr><td>Firebase Analytics</td><td>Aggregate usage metrics</td><td><a href="https://firebase.google.com/support/privacy">Firebase Privacy</a></td></tr>
         <tr><td>Firebase Crashlytics</td><td>Crash reporting</td><td><a href="https://firebase.google.com/support/privacy">Firebase Privacy</a></td></tr>
+        <tr><td>Google AdMob</td><td>Advertising (free tier)</td><td><a href="https://policies.google.com/privacy">Google Privacy</a></td></tr>
+        <tr><td>RevenueCat</td><td>In-app purchase management</td><td><a href="https://www.revenuecat.com/privacy">RevenueCat Privacy</a></td></tr>
       </tbody>
     </table>
 
@@ -183,14 +200,15 @@
       <li><strong>Account data:</strong> Retained until you delete your account.</li>
       <li><strong>Basket data:</strong> Retained until you clear your basket or delete your account.</li>
       <li><strong>Budget data:</strong> Stored locally only. Cleared when you remove the budget or uninstall the app.</li>
-      <li><strong>Local data:</strong> Cleared when you uninstall the app or use "Clear Cache" in Settings.</li>
+      <li><strong>Local data:</strong> Cleared when you uninstall the app.</li>
+      <li><strong>Purchase records:</strong> Managed by RevenueCat and the respective app store.</li>
     </ul>
 
     <h2>Your Rights</h2>
     <ul>
-      <li><strong>Delete account:</strong> Available in Profile > Delete Account. This removes all your data from our servers.</li>
-      <li><strong>Sign out:</strong> Stops cloud sync. Local data remains on your device.</li>
-      <li><strong>No account required:</strong> The app works fully without signing in.</li>
+      <li><strong>Delete account:</strong> Available in Profile > Delete Account. This removes all your data from our servers and unlinks your RevenueCat purchase record.</li>
+      <li><strong>Sign out:</strong> Stops cloud sync and resets all user state (Pro status, baskets, RevenueCat link). Local data remains on your device.</li>
+      <li><strong>No account required:</strong> The app works without signing in (free tier features).</li>
       <li><strong>Clear data:</strong> You can clear your basket and budget at any time.</li>
     </ul>
 
@@ -211,7 +229,7 @@
 
     <h2>Contact</h2>
     <p>For questions about this privacy policy, contact:<br>
-    <strong>Email:</strong> support@koka.app</p>
+    <strong>Email:</strong> kokadeveloper@gmail.com</p>
   </main>
 
   <footer>
